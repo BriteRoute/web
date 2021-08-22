@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>eClass - Learning Management System Api 1.1</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <h5 class="text-center">eClass - Learning Management System API</h5>
+        <center>
+            
+        </center>
+        <table class="table table-bordered table-striped table-hover">
+
+            <thead>
+                <th>API NAME</th>
+                <th>END POINT</th>
+                <th>API METHOD</th>
+                <th>Body Parameters</th>
+                <th>Parameters</th>
+                <th>Note</th>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Login</td>
+                    <td>
+                        /api/login
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>email, password</td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td>Register</td>
+                    <td>
+                        /api/register
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>name, email, password</td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td>Refresh Token</td>
+                    <td>
+                        /api/refresh
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>
+                        refresh_token
+                    </td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Logout</td>
+                    <td>
+                        /api/logout
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>
+                        No Parameter need
+                    </td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        Bearer Token needed in Authorizartion
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Facebook Login</td>
+                    <td>
+                        /api/fblogin
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>email, password, code, name</td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Google Login</td>
+                    <td>
+                        /api/googlelogin
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>email, password, uid, name</td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Forgot Password</td>
+                    <td>
+                        /api/forgotpassword
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>
+                        email
+                    </td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Verify Code for forget password</td>
+                    <td>
+                        api/verifycode
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>
+                        code, email
+                    </td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reset Password</td>
+                    <td>
+                        api/resetpassword
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td>
+                        email, password
+                    </td>
+                    <td> NO Parameter need</td>
+                    <td>
+                        -
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>All courses only</td>
+                    <td>
+                        /api/course?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td>
+                        No Parameter need
+                    </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+                    </td>
+                </tr>
+                <tr>
+                    <td>All featured courses only</td>
+                    <td>
+                        /api/featuredcourse?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td>
+                        No Parameter need
+                    </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+                    </td>
+                </tr>
+                
+
+                <tr>
+                    <td>Add To Wishlist</td>
+                    <td>
+                        /api/addtowishlist?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Remove From Wishlist</td>
+                    <td>
+                        /api/removewishlist?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Show Wishlist</td>
+                    <td>
+                        /api/show/wishlist?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>All Featured Categories only</td>
+                    <td>
+                        /api/featured/categories?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>All Bundle Courses</td>
+                    <td>
+                        /api/bundle/courses?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                
+
+                <tr>
+                    <td>User FAQ</td>
+                    <td>
+                        /api/user/faq?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Instructor FAQ</td>
+                    <td>
+                        /api/instructor/faq?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                
+                <tr>
+                    <td>User Profile</td>
+                    <td>
+                        /api/show/profile?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Update User Profile</td>
+                    <td>
+                        /api/update/profile?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> email, current_password</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Add to Cart</td>
+                    <td>
+                        /api/addtocart?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Remove Cart</td>
+                    <td>
+                        /api/remove/cart?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Show Cart</td>
+                    <td>
+                        /api/show/cart?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Remove all from Cart</td>
+                    <td>
+                        /api/remove/all/cart?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course detail</td>
+                    <td>
+                        /api/course/detail?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>All Pages</td>
+                    <td>
+                        /api/all/pages?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                           secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Home</td>
+                    <td>
+                        /api/home?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                           secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Remove all course from cart</td>
+                    <td>
+                        /api/remove/all/cart?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Add bundle course to cart</td>
+                    <td>
+                        /api/addtocart/bundle?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> bundle_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Remove bundle course from cart</td>
+                    <td>
+                        /api/remove/bundle?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> bundle_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Notifications</td>
+                    <td>
+                        /api/notifications?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Mark Notifications as read</td>
+                    <td>
+                        /api/readnotification/{id}?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+                            <li>Put {id} of Notification without "{ }"</li>
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Read all Notifications</td>
+                    <td>
+                        /api/readall/notification?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Instructor Details</td>
+                    <td>
+                        /api/instructor/profile?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> instructor_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Review</td>
+                    <td>
+                        /api/course/review?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Chapter Total Duration</td>
+                    <td>
+                        /api/chapter/duration?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> chapter_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>API Keys</td>
+                    <td>
+                        /api/apikeys
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>NO Parameter need</b></td>
+                    <td>
+                        <ul>
+                            -
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>All Courses with details</td>
+                    <td>
+                        /api/all/courses/detail?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>All Coupons</td>
+                    <td>
+                        /api/all/coupons?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Order Create</td>
+                    <td>
+                        /api/pay/store?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> payment_method, transaction_id, pay_status, sale_id (if payment from paypal)</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Become an Instructor</td>
+                    <td>
+                        /api/instructor/request?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> fname, lname, dob, email, gender, mobile, detail, file, image</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Purchase History</td>
+                    <td>
+                        /api/purchase/history?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>About Us</td>
+                    <td>
+                        /api/aboutus?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                           secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Contact Us</td>
+                    <td>
+                        /api/contactus?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> fname, email, mobile, message</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            secret = Your client secret key
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Blog</td>
+                    <td>
+                        /api/blog?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Blog Detail</td>
+                    <td>
+                        /api/blog/detail?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> blog_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Recent Blog</td>
+                    <td>
+                        /api/recent/blog?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Recent Course</td>
+                    <td>
+                        /api/recent/course?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>TermsCondition & PrivacyPolicy</td>
+                    <td>
+                        /api/terms_policy?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Career Page</td>
+                    <td>
+                        /api/career?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Zoom Meeting</td>
+                    <td>
+                        /api/career?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Big Blue Button Meeting</td>
+                    <td>
+                        /api/bigblue?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Payment Gateways Api Keys</td>
+                    <td>
+                        /api/payment/apikeys?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        Your client secret key
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Get Course Progress</td>
+                    <td>
+                        /api/course/progress?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Progress Update</td>
+                    <td>
+                        /api/course/progress/update?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, checked</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Report</td>
+                    <td>
+                        /api/course/report?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, detail</td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Coupon Apply</td>
+                    <td>
+                        /api/apply/coupon?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> coupon </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Coupon Remove</td>
+                    <td>
+                        /api/remove/coupon?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter need </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Content</td>
+                    <td>
+                        /api/course/content/{id}?secret=XXXX
+                    </td>
+                    <td>
+                        <b>GET</b>
+                    </td>
+
+                    <td> NO Parameter need </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>Put {id} of course without "{ }"</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Appointment Request</td>
+                    <td>
+                        /api/appointment/request?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, title </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                 <tr>
+                    <td>Course Assignment Submit </td>
+                    <td>
+                        /api/assignment/submit?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, chapter_id, title, file </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Question Submit </td>
+                    <td>
+                        /api/question/submit?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, question </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Course Answer Submit </td>
+                    <td>
+                        /api/answer/submit?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> course_id, question_id, answer </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>>Bearer Token needed in Authorizartion</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>Appointment Delete </td>
+                    <td>
+                        /api/appointment/delete/{id}?secret=XXXX
+                    </td>
+                    <td>
+                        <b>POST</b>
+                    </td>
+
+                    <td> NO Parameter needed </td>
+                    <td> <b>secret</b></td>
+                    <td>
+                        <ul>
+                            <li>secret = Your client secret key</li>
+                            <li>>Bearer Token needed in Authorizartion</li>
+                            <li>Put {id} of appointment without "{ }"</li>
+
+                        </ul>
+
+                    </td>
+                </tr>
+
+                
+
+
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
